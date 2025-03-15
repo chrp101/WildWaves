@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wild Waves Aquatic Park</title>
 </head>
 <body>
@@ -10,12 +9,12 @@
     <button type="button" onclick="buyTicket()">Purchase Attraction</button>
 
     <script>
-        // Global constants for attraction height requirements
+        // Setting the global constants for attraction height requirements
         const WAVE_POOL_MIN_HEIGHT = 42;
         const WATERSLIDE_MIN_HEIGHT = 48;
         const LAZY_RIVER_MIN_HEIGHT = 36;
 
-        // Function to buy ticket
+        // This function is to buy ticket
         function buyTicket() {
             const attractionType = prompt('Which attraction do you want to visit? Type "wave" for Wave Pool, "water" for Waterslide, or "river" for Lazy River.');
             const userHeight = parseInt(prompt('What is your height in inches?'), 10);
@@ -34,7 +33,7 @@
             }
         }
 
-        // Function to check height requirement
+        // This function is to check height requirement
         function checkHeight(attraction, height, withAdult) {
             switch (attraction.toLowerCase()) {
                 case "wave":
