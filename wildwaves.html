@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wild Waves Aquatic Park</title>
+</head>
+<body>
+    <h1>Wild Waves Aquatic Park</h1>
+    <button type="button" onclick="buyTicket()">Purchase Attraction</button>
+
+    <script>
+        // Global constants for attraction height requirements
+        const WAVE_POOL_MIN_HEIGHT = 42;
+        const WATERSLIDE_MIN_HEIGHT = 48;
+        const LAZY_RIVER_MIN_HEIGHT = 36;
+
+        // Function to buy ticket
+        function buyTicket() {
+            const attractionType = prompt('Which attraction do you want to visit? Type "wave" for Wave Pool, "water" for Waterslide, or "river" for Lazy River.');
+            const userHeight = parseInt(prompt('What is your height in inches?'), 10);
+            const isWithAdult = confirm('Are you accompanied by an adult? Click OK for Yes, Cancel for No.');
+
+            console.log("User's selected attraction is: " + attractionType);
+            console.log("User's height is: " + userHeight);
+            console.log("User is with an adult: " + isWithAdult);
+
+            const isAllowed = checkHeight(attractionType, userHeight, isWithAdult);
+
+            if (isAllowed) {
+                alert("You are allowed to enter the " + attractionType + " attraction!");
+            } else {
+                alert("Sorry, you do not meet the height requirements for this attraction.");
+            }
+        }
+
+        // Function to check height requirement
+        function checkHeight(attraction, height, withAdult) {
+            switch (attraction.toLowerCase()) {
+                case "wave":
+                    return height >= WAVE_POOL_MIN_HEIGHT || (height >= 43 && withAdult);
+                case "water":
+                    return height >= WATERSLIDE_MIN_HEIGHT || (height >= 43 && withAdult);
+                case "river":
+                    return height >= LAZY_RIVER_MIN_HEIGHT || (height >= 43 && withAdult);
+                default:
+                    alert("Invalid attraction choice. Please enter 'wave', 'water', or 'river'.");
+                    return false;
+            }
+        }
+    </script>
+</body>
+</html>
